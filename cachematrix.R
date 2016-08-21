@@ -8,7 +8,7 @@
 ##
 makeCacheMatrix <- function(functionlist = matrix()) {
         CachedInverse <- NULL
-## To assign value of matrix and mean not in current environment.
+## To assign value of matrix and mean in a different environment.
         setmatrix <- function(mat) {                    
                 functionlist <<- mat
                 CachedInverse <<- NULL
