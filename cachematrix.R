@@ -34,11 +34,14 @@ makeCacheMatrix <- function(functionlist = matrix()) {
 ##      Output - Returns the Inverse of the matrix by either getting it from cache or calculating it if not present in cache.
 ##
 cacheSolve <- function(functionlist, ...) {
+## Get the inverse from the cache.
         CachedInverse <- functionlist$getinverse()
+## Check if the Inverse is present in cache, if yes return it.
         if (!is.null(CachedInverse)) {
                 message("Getting inverse from cached data")
                 return(CachedInverse)
         }
+## If inverse is not in cache, calculate it using solve function and save it to cache and return it.
         inpmat <- functionlist$getmatrix()
         CachedInverse <- solve(inpmat, ...)
         functionlist$setinverse(CachedInverse)
